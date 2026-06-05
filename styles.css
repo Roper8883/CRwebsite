@@ -359,6 +359,53 @@ li + li {
   font-weight: 700;
 }
 
+.hero-family-icons {
+  margin-top: 24px;
+}
+
+.hero-family-icons__label {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.hero-family-icon-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-family-icon {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-family-icon img {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+}
+
+.hero-family-icon figcaption {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
 .hero-note {
   margin-top: 20px;
   max-width: 62ch;
