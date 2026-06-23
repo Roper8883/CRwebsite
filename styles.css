@@ -38,6 +38,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -47,6 +48,9 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   line-height: 1.62;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 body::before {
@@ -85,6 +89,28 @@ ol {
 
 li + li {
   margin-top: 0.5rem;
+}
+
+h1,
+h2,
+h3,
+p,
+li,
+a,
+span,
+figcaption,
+strong {
+  hyphens: manual;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+h1,
+h2,
+h3,
+p,
+li {
+  text-wrap: pretty;
 }
 
 .skip-link {
@@ -130,6 +156,7 @@ li + li {
   display: inline-flex;
   align-items: center;
   gap: 14px;
+  flex: 0 0 auto;
   min-width: 0;
 }
 
@@ -148,7 +175,8 @@ li + li {
   display: block;
   font-family: var(--font-display);
   font-size: 0.96rem;
-  letter-spacing: 0.03em;
+  letter-spacing: 0;
+  line-height: 1.18;
 }
 
 .brand-copy span {
@@ -187,6 +215,9 @@ li + li {
 .nav-wrap {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  flex: 1 1 auto;
+  min-width: 0;
   gap: 18px;
 }
 
@@ -194,15 +225,18 @@ li + li {
 .utility-nav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  flex-wrap: nowrap;
+  gap: 4px;
 }
 
 .nav-link {
-  padding: 11px 14px;
+  padding: 10px 11px;
   border-radius: 999px;
   color: var(--muted-strong);
-  font-size: 0.94rem;
+  font-size: 0.84rem;
   font-weight: 650;
+  line-height: 1.14;
+  white-space: nowrap;
   transition: background 140ms ease, color 140ms ease, transform 140ms ease;
 }
 
@@ -226,7 +260,9 @@ li + li {
   border-radius: 999px;
   border: 1px solid transparent;
   font-weight: 800;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
+  line-height: 1.18;
+  text-align: center;
   transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
 }
 
@@ -294,7 +330,7 @@ li + li {
   color: var(--electric);
   font-size: 0.79rem;
   font-weight: 850;
-  letter-spacing: 0.18em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -311,16 +347,23 @@ li + li {
 .legal-hero h1,
 .support-hero h1 {
   font-family: var(--font-display);
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
+  text-wrap: balance;
 }
 
-.hero-copy h1,
+.hero-copy h1 {
+  margin: 0;
+  font-size: 4.05rem;
+  line-height: 1.02;
+  max-width: 16ch;
+}
+
 .legal-hero h1,
 .support-hero h1 {
   margin: 0;
-  font-size: clamp(2.9rem, 5.5vw, 5.5rem);
-  line-height: 0.96;
-  max-width: 12ch;
+  font-size: 3.8rem;
+  line-height: 1.05;
+  max-width: 18ch;
 }
 
 .hero-copy p,
@@ -328,7 +371,7 @@ li + li {
 .support-hero p {
   margin-top: 20px;
   max-width: 60ch;
-  font-size: clamp(1.04rem, 1.3vw, 1.22rem);
+  font-size: 1.12rem;
   color: var(--muted-strong);
 }
 
@@ -371,7 +414,7 @@ li + li {
   font-size: 0.86rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.09em;
+  letter-spacing: 0;
 }
 
 .hero-family-icon-row {
@@ -384,6 +427,7 @@ li + li {
   margin: 0;
   padding: 0;
   border: 0;
+  width: 116px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -404,7 +448,7 @@ li + li {
   color: var(--muted);
   font-size: 0.76rem;
   font-weight: 700;
-  max-width: 76px;
+  max-width: 100%;
   line-height: 1.15;
   text-align: center;
 }
@@ -545,9 +589,9 @@ li + li {
 
 .section-header h2 {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  line-height: 1.02;
-  max-width: 12ch;
+  font-size: 2.55rem;
+  line-height: 1.08;
+  max-width: 22ch;
 }
 
 .section-header p {
@@ -645,7 +689,7 @@ li + li {
   color: var(--accent-strong);
   font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -686,14 +730,14 @@ li + li {
   color: var(--accent-strong);
   font-size: 0.82rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .metric-value {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 2vw, 2rem);
+  font-size: 1.85rem;
   line-height: 1.02;
 }
 
@@ -875,7 +919,7 @@ li + li {
 .legal-section-card h2 {
   margin: 0 0 12px;
   font-family: var(--font-display);
-  font-size: clamp(1.55rem, 2.2vw, 2rem);
+  font-size: 1.8rem;
   line-height: 1.08;
   scroll-margin-top: 110px;
 }
@@ -929,8 +973,8 @@ li + li {
 
 .page-footer-cta h2 {
   margin: 0 0 12px;
-  font-size: clamp(2rem, 3.4vw, 3.2rem);
-  line-height: 1.04;
+  font-size: 2.65rem;
+  line-height: 1.08;
 }
 
 .page-footer-cta p {
@@ -966,7 +1010,7 @@ li + li {
 .footer-title {
   font-size: 0.82rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -1076,7 +1120,7 @@ li + li {
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1240px) {
   .menu-toggle {
     display: inline-flex;
   }
@@ -1107,10 +1151,25 @@ li + li {
     align-items: stretch;
   }
 
+  .nav-link {
+    min-height: 44px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
   .hero-copy h1,
   .legal-hero h1,
   .support-hero h1 {
     max-width: none;
+  }
+
+  .hero-copy h1 {
+    font-size: 4rem;
+  }
+
+  .legal-hero h1,
+  .support-hero h1 {
+    font-size: 3.35rem;
   }
 
   .hero-visual {
@@ -1130,6 +1189,40 @@ li + li {
   .site-hero .shell {
     min-height: auto;
     padding-top: 34px;
+  }
+
+  .brand-copy strong {
+    font-size: 0.9rem;
+  }
+
+  .brand-copy span {
+    font-size: 0.76rem;
+  }
+
+  .hero-copy h1,
+  .legal-hero h1,
+  .support-hero h1 {
+    font-size: 2.7rem;
+    line-height: 1.06;
+  }
+
+  .section-header h2,
+  .page-footer-cta h2 {
+    font-size: 2.15rem;
+    line-height: 1.12;
+    max-width: none;
+  }
+
+  .hero-copy p,
+  .legal-hero p,
+  .support-hero p {
+    font-size: 1.02rem;
+  }
+
+  .button-link {
+    width: 100%;
+    min-height: 50px;
+    padding: 0 16px;
   }
 
   .hero-visual {
@@ -1166,5 +1259,32 @@ li + li {
 
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-lockup {
+    gap: 10px;
+  }
+
+  .brand-lockup img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .brand-copy span {
+    max-width: 19ch;
+  }
+
+  .menu-toggle {
+    min-width: 42px;
+    min-height: 42px;
+    padding: 0 14px;
+  }
+
+  .hero-copy h1,
+  .legal-hero h1,
+  .support-hero h1 {
+    font-size: 2.48rem;
   }
 }
