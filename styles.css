@@ -332,15 +332,6 @@ li + li {
   color: var(--muted-strong);
 }
 
-.legal-hero-logo {
-  width: min(360px, 78vw);
-  max-height: 122px;
-  object-fit: contain;
-  object-position: left center;
-  margin: 0 0 22px;
-  filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.28));
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
