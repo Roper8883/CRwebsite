@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://capstoneready.com.au/sitemap.xml
+Sitemap: https://www.sparkysready.com/sitemap.xml
