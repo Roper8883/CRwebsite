@@ -1,13 +1,5 @@
-# CRwebsite
+# Sparky's Ready website
 
-Public marketing and legal website for CapstoneReady.
+Static GitHub Pages website for the global Sparky's Ready product family.
 
-## Local preview
-
-Open `index.html` in a browser.
-
-## Deploy (GitHub Pages)
-
-1. Push repository to GitHub.
-2. In repository settings, enable **Pages** from `main` branch root.
-3. Site URL will be: `https://roper8883.github.io/CRwebsite/`.
+The public site is generated from `tools/build-site.mjs` and published as plain HTML, CSS, JavaScript, and image assets.
