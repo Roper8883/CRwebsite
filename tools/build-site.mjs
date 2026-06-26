@@ -6,6 +6,7 @@ const brand = "Sparky's Ready";
 const siteUrl = "https://www.sparkysready.com";
 const supportEmail = "support@sparkysready.com";
 const brandIcon = "assets/brand/sparkys-ready-world-icon.png";
+const headerIcon = "assets/brand/sparkys-ready-header-icon.png";
 
 const navItems = [
   ["apprentices", "Apprentices", "apprentices/"],
@@ -308,6 +309,10 @@ function layout({ file, route = "", depth = 0, active = "", title, description, 
   <meta name="twitter:title" content="${escapeHtml(title)}" />
   <meta name="twitter:description" content="${escapeHtml(description)}" />
   <meta name="twitter:image" content="${siteUrl}/${brandIcon}" />
+  <link rel="icon" href="${rel(depth, "favicon.ico")}" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="${rel(depth, "assets/brand/sparkys-ready-favicon-32.png")}" />
+  <link rel="icon" type="image/png" sizes="192x192" href="${rel(depth, "assets/brand/sparkys-ready-icon-192.png")}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="${rel(depth, "assets/brand/sparkys-ready-icon-180.png")}" />
   <link rel="stylesheet" href="${rel(depth, "styles.css")}" />
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
 </head>
@@ -316,7 +321,7 @@ function layout({ file, route = "", depth = 0, active = "", title, description, 
   <header class="site-header" data-menu-open="false">
     <div class="shell site-header__inner">
       <a class="brand-lockup" href="${rel(depth)}" aria-label="Sparky's Ready home">
-        <img class="brand-icon" src="${rel(depth, brandIcon)}" alt="" aria-hidden="true" />
+        <img class="brand-icon" src="${rel(depth, headerIcon)}" alt="" aria-hidden="true" />
         <span class="brand-copy">
           <strong>Sparky's Ready</strong>
           <span>Global electrical readiness platform</span>
@@ -342,7 +347,7 @@ ${body}
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div class="footer-brand">
-        <img class="brand-icon brand-icon--footer" src="${rel(depth, brandIcon)}" alt="" aria-hidden="true" />
+        <img class="brand-icon brand-icon--footer" src="${rel(depth, headerIcon)}" alt="" aria-hidden="true" />
         <div>
           <h2>Sparky's Ready</h2>
           <p>Professional learning, evidence, revision, and readiness tools for electrical pathways around the world.</p>
@@ -1488,7 +1493,9 @@ p, h1, h2, h3, dl { margin: 0; }
   height: 44px;
   border-radius: 10px;
   object-fit: contain;
-  box-shadow: var(--shadow-soft);
+  background: #0c2138;
+  padding: 2px;
+  box-shadow: 0 8px 22px rgba(17, 24, 32, 0.14);
 }
 .brand-icon--footer { width: 52px; height: 52px; flex: 0 0 auto; }
 .brand-copy strong {

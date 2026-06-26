@@ -87,7 +87,9 @@ p, h1, h2, h3, dl { margin: 0; }
   height: 44px;
   border-radius: 10px;
   object-fit: contain;
-  box-shadow: var(--shadow-soft);
+  background: #0c2138;
+  padding: 2px;
+  box-shadow: 0 8px 22px rgba(17, 24, 32, 0.14);
 }
 .brand-icon--footer { width: 52px; height: 52px; flex: 0 0 auto; }
 .brand-copy strong {
