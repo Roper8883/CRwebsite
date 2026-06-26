@@ -586,6 +586,14 @@ p, h1, h2, h3, dl { margin: 0; }
   letter-spacing: 0.08em;
 }
 .target-meta dd { color: var(--ink-2); }
+.target-meta a {
+  color: var(--blue);
+  font-weight: 850;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.section--ink .target-meta a { color: #9cc7ff; }
 
 .split {
   display: grid;
@@ -638,6 +646,7 @@ p, h1, h2, h3, dl { margin: 0; }
   margin-top: 14px;
   color: var(--blue);
   font-weight: 850;
+  overflow-wrap: anywhere;
   text-decoration: underline;
   text-underline-offset: 3px;
 }

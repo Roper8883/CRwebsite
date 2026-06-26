@@ -29,6 +29,7 @@ const targets = [
     region: "Australia",
     status: "Live target",
     pathway: "Australian electrical apprenticeship readiness",
+    email: "capstone@sparkysready.com",
     icon: "assets/targets/capstone-ready-icon.png",
     description:
       "The Australia target in the Sparky's Ready family, built for electrical apprenticeship readiness, revision, progress visibility, evidence organisation, and workplace-linked support.",
@@ -39,6 +40,7 @@ const targets = [
     region: "United Kingdom",
     status: "Live target",
     pathway: "AM2 and AM2S preparation",
+    email: "am2@sparkysready.com",
     icon: "assets/targets/am2-ready-icon.png",
     description:
       "A UK-focused preparation target for learners moving through electrical competence, assessment readiness, revision, and evidence-aware workflows.",
@@ -49,6 +51,7 @@ const targets = [
     region: "United States",
     status: "Live target",
     pathway: "Apprentice-to-journeyman progression",
+    email: "journeyman@sparkysready.com",
     icon: "assets/targets/journeyman-ready-icon.png",
     description:
       "A US pathway target for exam preparation, apprenticeship progress, documented experience, and practical readiness planning.",
@@ -59,6 +62,7 @@ const targets = [
     region: "Canada",
     status: "In build",
     pathway: "Red Seal exam readiness",
+    email: "redseal@sparkysready.com",
     icon: "assets/targets/red-seal-ready-icon.png",
     description:
       "A Canadian target shaped around trade exam readiness, evidence confidence, skills review, and clear next steps for learners and supervisors.",
@@ -69,6 +73,7 @@ const targets = [
     region: "New Zealand",
     status: "In build",
     pathway: "Registration and competence support",
+    email: "ewrb@sparkysready.com",
     icon: "assets/targets/ewrb-ready-icon.png",
     description:
       "A New Zealand target designed for registration-aware learning, workplace evidence, compliance confidence, and professional readiness.",
@@ -79,6 +84,7 @@ const targets = [
     region: "Ireland",
     status: "In build",
     pathway: "Electrical apprenticeship progression",
+    email: "solas@sparkysready.com",
     icon: "assets/targets/solas-ready-icon.png",
     description:
       "An Ireland-focused target for apprenticeship learning, on-the-job development, structured progress, and preparation support.",
@@ -89,6 +95,7 @@ const targets = [
     region: "Global",
     status: "In build",
     pathway: "Professional development",
+    email: "sparkyspro@sparkysready.com",
     icon: "assets/targets/sparkys-pro-icon.png",
     description:
       "A global professional target for electricians who want ongoing skills development, better records, and sharper work-readiness habits.",
@@ -163,6 +170,7 @@ function targetCards(depth) {
         <dl class="target-meta">
           <div><dt>Status</dt><dd>${escapeHtml(target.status)}</dd></div>
           <div><dt>Focus</dt><dd>${escapeHtml(target.pathway)}</dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:${target.email}">${escapeHtml(target.email)}</a></dd></div>
         </dl>
       </article>`,
       )
@@ -188,6 +196,20 @@ function featureList(items) {
   return `<ul class="feature-list">
     ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n")}
   </ul>`;
+}
+
+function supportRouteCards() {
+  return `<div class="support-grid">
+        <article class="support-card support-card--general"><h3>General support</h3><p>For Sparky's Ready account access, website issues, billing questions, privacy routing, and anything that does not fit a single target.</p><a href="mailto:${supportEmail}">${supportEmail}</a></article>
+        ${targets
+          .map((target) => {
+            const regionLabel = target.region === "Global" ? "global" : target.region;
+            return `<article class="support-card"><h3>${escapeHtml(target.name)}</h3><p>${escapeHtml(
+              `For ${regionLabel} questions about ${target.name}, app access, target availability, and pathway support.`,
+            )}</p><a href="mailto:${target.email}">${escapeHtml(target.email)}</a></article>`;
+          })
+          .join("\n")}
+      </div>`;
 }
 
 function screenshotPanel(depth, image, title, body, modifier = "") {
@@ -946,12 +968,8 @@ standardPage({
       eyebrow: "Support routes",
       title: "Send the question to the clearest inbox.",
       body:
-        "Include the target name, device, app version if available, and a short description of the issue.",
-      content: `<div class="support-grid">
-        <article class="support-card"><h3>General support</h3><p>For Sparky's Ready target questions, app access, website issues, and account help.</p><a href="mailto:${supportEmail}">${supportEmail}</a></article>
-        <article class="support-card"><h3>AM2 Ready</h3><p>For UK target questions and AM2 Ready support.</p><a href="mailto:support@am2ready.com">support@am2ready.com</a></article>
-        <article class="support-card"><h3>Journeyman Ready</h3><p>For US target questions and Journeyman Ready support.</p><a href="mailto:support@journeymanready.com">support@journeymanready.com</a></article>
-      </div>`,
+        "Each target now has a working Sparky's Ready address. Include the target name, device, app version if available, and a short description of the issue.",
+      content: supportRouteCards(),
     }),
     section({
       tone: "section--paper",
@@ -1992,6 +2010,14 @@ p, h1, h2, h3, dl { margin: 0; }
   letter-spacing: 0.08em;
 }
 .target-meta dd { color: var(--ink-2); }
+.target-meta a {
+  color: var(--blue);
+  font-weight: 850;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.section--ink .target-meta a { color: #9cc7ff; }
 
 .split {
   display: grid;
@@ -2044,6 +2070,7 @@ p, h1, h2, h3, dl { margin: 0; }
   margin-top: 14px;
   color: var(--blue);
   font-weight: 850;
+  overflow-wrap: anywhere;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
