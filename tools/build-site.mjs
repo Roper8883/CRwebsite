@@ -5,9 +5,11 @@ const root = process.cwd();
 const brand = "Sparky's Ready";
 const siteUrl = "https://www.sparkysready.com";
 const supportEmail = "support@sparkysready.com";
-const assetVersion = "20260627-new-earth";
+const assetVersion = "20260627-new-earth-lite";
 const brandIcon = versionedAsset("assets/brand/sparkys-ready-world-icon.png");
-const headerIcon = versionedAsset("assets/brand/sparkys-ready-header-icon.png");
+const brandIconWebp640 = versionedAsset("assets/brand/sparkys-ready-world-icon-640.webp");
+const brandIconWebp1280 = versionedAsset("assets/brand/sparkys-ready-world-icon-1280.webp");
+const headerIcon = versionedAsset("assets/brand/sparkys-ready-header-icon-160.webp");
 
 const navItems = [
   ["apprentices", "Apprentices", "apprentices/"],
@@ -348,7 +350,7 @@ function layout({ file, route = "", depth = 0, active = "", title, description, 
   <header class="site-header" data-menu-open="false">
     <div class="shell site-header__inner">
       <a class="brand-lockup" href="${rel(depth)}" aria-label="Sparky's Ready home">
-        <img class="brand-icon" src="${rel(depth, headerIcon)}" alt="" aria-hidden="true" />
+        <img class="brand-icon" src="${rel(depth, headerIcon)}" alt="" aria-hidden="true" width="44" height="44" decoding="async" />
         <span class="brand-copy">
           <strong>Sparky's Ready</strong>
           <span>Global electrical readiness platform</span>
@@ -374,7 +376,7 @@ ${body}
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div class="footer-brand">
-        <img class="brand-icon brand-icon--footer" src="${rel(depth, headerIcon)}" alt="" aria-hidden="true" />
+        <img class="brand-icon brand-icon--footer" src="${rel(depth, headerIcon)}" alt="" aria-hidden="true" width="52" height="52" decoding="async" />
         <div>
           <h2>Sparky's Ready</h2>
           <p>Professional learning, evidence, revision, and readiness tools for electrical pathways around the world.</p>
@@ -443,7 +445,10 @@ function homePage() {
       </div>
     </div>
     <figure class="hero-brand-art" aria-label="Sparky's Ready global target family icon">
-      <img src="${rel(0, brandIcon)}" alt="Sparky's Ready Earth icon with target app icons around it" />
+      <picture>
+        <source type="image/webp" srcset="${rel(0, brandIconWebp640)} 640w, ${rel(0, brandIconWebp1280)} 1280w" sizes="(max-width: 680px) 310px, (max-width: 1120px) 620px, 48vw" />
+        <img src="${rel(0, brandIcon)}" alt="Sparky's Ready Earth icon with target app icons around it" width="1280" height="1280" fetchpriority="high" decoding="async" />
+      </picture>
     </figure>
   </div>
 </section>
@@ -1697,6 +1702,9 @@ p, h1, h2, h3, dl { margin: 0; }
   justify-self: center;
   width: min(100%, 620px);
   filter: drop-shadow(0 38px 86px rgba(0, 0, 0, 0.36));
+}
+.hero-brand-art picture {
+  display: block;
 }
 .hero-brand-art img {
   width: 100%;
