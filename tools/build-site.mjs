@@ -5,8 +5,9 @@ const root = process.cwd();
 const brand = "Sparky's Ready";
 const siteUrl = "https://www.sparkysready.com";
 const supportEmail = "support@sparkysready.com";
-const brandIcon = "assets/brand/sparkys-ready-world-icon.png";
-const headerIcon = "assets/brand/sparkys-ready-header-icon.png";
+const assetVersion = "20260627-night-lights";
+const brandIcon = versionedAsset("assets/brand/sparkys-ready-world-icon.png");
+const headerIcon = versionedAsset("assets/brand/sparkys-ready-header-icon.png");
 
 const navItems = [
   ["apprentices", "Apprentices", "apprentices/"],
@@ -119,6 +120,10 @@ function write(file, contents) {
 function rel(depth, target = "") {
   const base = "../".repeat(depth);
   return target ? `${base}${target}` : base || "./";
+}
+
+function versionedAsset(target) {
+  return `${target}?v=${assetVersion}`;
 }
 
 function canonical(route = "") {
@@ -331,10 +336,10 @@ function layout({ file, route = "", depth = 0, active = "", title, description, 
   <meta name="twitter:title" content="${escapeHtml(title)}" />
   <meta name="twitter:description" content="${escapeHtml(description)}" />
   <meta name="twitter:image" content="${siteUrl}/${brandIcon}" />
-  <link rel="icon" href="${rel(depth, "favicon.ico")}" sizes="any" />
-  <link rel="icon" type="image/png" sizes="32x32" href="${rel(depth, "assets/brand/sparkys-ready-favicon-32.png")}" />
-  <link rel="icon" type="image/png" sizes="192x192" href="${rel(depth, "assets/brand/sparkys-ready-icon-192.png")}" />
-  <link rel="apple-touch-icon" sizes="180x180" href="${rel(depth, "assets/brand/sparkys-ready-icon-180.png")}" />
+  <link rel="icon" href="${rel(depth, versionedAsset("favicon.ico"))}" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="${rel(depth, versionedAsset("assets/brand/sparkys-ready-favicon-32.png"))}" />
+  <link rel="icon" type="image/png" sizes="192x192" href="${rel(depth, versionedAsset("assets/brand/sparkys-ready-icon-192.png"))}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="${rel(depth, versionedAsset("assets/brand/sparkys-ready-icon-180.png"))}" />
   <link rel="stylesheet" href="${rel(depth, "styles.css")}" />
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
 </head>
