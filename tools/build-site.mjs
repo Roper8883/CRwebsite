@@ -5,7 +5,7 @@ const root = process.cwd();
 const brand = "Sparky's Ready";
 const siteUrl = "https://www.sparkysready.com";
 const supportEmail = "support@sparkysready.com";
-const assetVersion = "20260627-night-lights";
+const assetVersion = "20260627-new-earth";
 const brandIcon = versionedAsset("assets/brand/sparkys-ready-world-icon.png");
 const headerIcon = versionedAsset("assets/brand/sparkys-ready-header-icon.png");
 
